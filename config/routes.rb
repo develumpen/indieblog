@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   resources :entries, only: [ :index, :show ]
-  resource :micropub, only: [ :create ], controller: "micropub"
+  resource :micropub, only: [ :show, :create ], controller: "micropub"
 
   root "entries#index"
 end
