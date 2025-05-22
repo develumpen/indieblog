@@ -3,11 +3,11 @@ class MicropubController < ApplicationController
 
   def create
     unless params[:h] == "entry"
-      render json: { error: "Not supported h-value" }, status: :invalid_request
+      render json: { error: "Not supported h-value" }, status: :bad_request
       return
     end
 
-    Entry.create!(
+    entry = Entry.create!(
       content: params[:content],
       published_at: Time.current
     )
